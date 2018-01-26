@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function() {
+                $.ajax({
+                    url: 'https://api.fixer.io/latest',
+                    type: 'GET',
+                    dataType: 'jsonp',
+                    success: function currencyValue(data) {       
+                       console.log(data);
+                    }
+                });          
+            });
+
+    </script>
+</head>
+
+<body>
+   <div id="container-fluid">
+       <div id="header">
+           <h1>PRZELICZNIK WALUT</h1>
+            </div>
+        <div id="currencybox">
+            <select id="list" onchange="">                        <!-- wybór waluty -->
+                <option value="PLN">PLN</option>
+                <option value="USD">USD</option>        
+            </select>
+            <input type="number" id="inputCurrency">         <!-- wprowadzanie wartości -->
+            
+            <div id="wynik"></div>                              <!-- tu będzie wynik -->
+            
+        </div>
+            
+   </div>
+</body>
+
+</html>
